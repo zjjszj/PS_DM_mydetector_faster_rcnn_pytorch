@@ -166,8 +166,8 @@ setup(
 #build.py
 import os
 import torch
-from torch.utils.ffi import create_extension
-
+#from torch.utils.ffi import create_extension  #is deprecated
+from torch.utils.cpp_extension import BuildExtension
 
 sources = ['src/roi_pooling.c']
 headers = ['src/roi_pooling.h']
@@ -186,7 +186,7 @@ print(this_file)
 extra_objects = ['src/cuda/roi_pooling.cu.o']
 extra_objects = [os.path.join(this_file, fname) for fname in extra_objects]
 
-ffi = create_extension(
+ffi = BuildExtension(
     '_ext.roi_pooling',
     headers=headers,
     sources=sources,
