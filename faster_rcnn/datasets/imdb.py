@@ -12,6 +12,7 @@ import numpy as np
 import scipy.sparse
 
 from ..utils.cython_bbox import bbox_overlaps
+from PIL import Image
 
 # TODO: make fast_rcnn irrelevant
 # >>>> obsolete, because it depends on sth outside of this project
